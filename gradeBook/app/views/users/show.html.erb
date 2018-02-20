@@ -1,0 +1,13 @@
+<%= @user.name %>, <%= @user.email %>
+
+<% if current_user.teacher? %>
+  <p>teacher profile</p>
+<% end %>
+<% if current_user.student? %>
+  <p>student profile</p>
+  <%= @user.role%>
+  <%= @user.courses%>
+<% end %>
+<% if current_user.admin? %>
+  <p>admin profile</p>
+<% end %>

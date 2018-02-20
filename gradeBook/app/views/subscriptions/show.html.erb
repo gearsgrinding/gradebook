@@ -1,0 +1,16 @@
+<p>
+  <strong>Student:</strong>
+  <%= @subscription.student_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @subscription.course_id %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @subscription.grade %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription), class: 'btn btn-small' %>

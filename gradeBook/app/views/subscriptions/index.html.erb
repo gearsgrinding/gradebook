@@ -1,0 +1,20 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Teacher Name</th>
+      <th>Course Description</th>
+      <th>Grade</th>
+    </tr>
+
+<tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.course.name %></td>
+        <td><%= subscription.course.teacher.name %></td>
+        <td><%= subscription.course.description %></td>
+        <td><%= subscription.grade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
