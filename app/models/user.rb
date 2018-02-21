@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def getGPA
+  	self.gpa = subscriptions.average(:grade)
+  end
+
   def student?
   	false
   end

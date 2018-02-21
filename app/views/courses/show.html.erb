@@ -1,0 +1,39 @@
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Teacher ID:</strong>
+  <%= @course.teacher_id %>
+</p>
+
+
+<strong>Roster:</strong>
+<br>
+<table>
+	<tr>
+      <th>Name</th>
+      <th>Email</th>
+      <% if current_user.teacher? %>
+      <th>Grade</th>
+      <%end%>
+    </tr>
+<tbody>
+	
+    <% @course.subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.student.name %></td>
+        <td><%= subscription.student.email%></td>
+        <% if current_user.teacher? %>
+        <td><%= subscription.grade %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

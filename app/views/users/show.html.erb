@@ -3,10 +3,9 @@
 <% if current_user.teacher? %>
   <p>teacher profile</p>
 <% end %>
+<%puts current_user.student?%>
 <% if current_user.student? %>
   <p>student profile</p>
-  <%= @user.role%>
-  <%= @user.courses%>
 <% end %>
 <% if current_user.admin? %>
   <p>admin profile</p>
