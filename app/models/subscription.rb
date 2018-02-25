@@ -1,7 +1,7 @@
 class Subscription < ActiveRecord::Base
 	belongs_to :course
-	belongs_to :student
-	validates :student, presence: true
+	belongs_to :user
+	validates :user, presence: true
   validates :course, presence: true
   validates :grade, presence: true
 end

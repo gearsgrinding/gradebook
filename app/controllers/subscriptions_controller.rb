@@ -18,8 +18,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    @subscription = Subscription.find(params[:id])
   	@subscription.destroy
-  	render "index"
+  	redirect_to root_path
   end
 
   def show
@@ -29,6 +30,6 @@ class SubscriptionsController < ApplicationController
    private
 
     def subscription_params
-      params.require(:subscription).permit(:student_id, :course_id, :grade)
+      params.require(:subscription).permit(:user_id, :course_id, :grade)
     end
 end

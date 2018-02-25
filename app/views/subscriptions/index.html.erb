@@ -1,7 +1,6 @@
 <table>
     <tr>
       <th>Name</th>
-      <th>Teacher Name</th>
       <th>Course Description</th>
       <th>Grade</th>
     </tr>
@@ -10,9 +9,10 @@
     <% @subscriptions.each do |subscription| %>
       <tr>
         <td><%= subscription.course.name %></td>
-        <td><%= subscription.course.teacher.name %></td>
         <td><%= subscription.course.description %></td>
         <td><%= subscription.grade %></td>
+        <td><%= link_to 'Unenroll', subscription_path(subscription), method: :delete, class: 'btn btn-small'%>
+        </td>
       </tr>
     <% end %>
   </tbody>

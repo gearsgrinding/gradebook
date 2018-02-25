@@ -1,9 +1,10 @@
 class Course < ActiveRecord::Base
-	belongs_to :teacher
+	belongs_to :user
 	has_many :subscriptions
-	has_many :students, through: :subscriptions
+	has_many :users, through: :subscriptions
 	validates :name, presence: true, uniqueness: true, length: {maximum: 40}
 	validates :description, presence: true
+	validates :user, presence: true
 
 	def subscription_count
 		subscriptions.size

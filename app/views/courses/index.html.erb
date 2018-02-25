@@ -17,7 +17,7 @@
       <tr>
         <td><%= course.name %></td>
         <td><%= course.description %></td>
-        <td><%= course.teacher_id %></td>
+        <td><%= course.user_id %></td>
 
         <% if current_user.admin? %>
         <td> <%= course.average_grade %> </td>

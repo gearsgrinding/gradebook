@@ -15,16 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def self.role
-  	[Student, Teacher,Admin]
-  end
-
-  after_initialize :set_default_role, :if => :new_record?
-
-  def set_default_role
-  	self.role = Student;
-    def student?
-    	true
-    end
+  	[Student,Teacher,Admin]
   end
 
   def getGPA

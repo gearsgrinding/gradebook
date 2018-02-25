@@ -9,6 +9,9 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
+      <%= f.label :role %>
+      <%= f.select :role,[["Select One", ""], "Student", "Teacher", "Admin"],{}, {class: "form-control"} %>
+
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 

@@ -10,7 +10,7 @@
 
 <p>
   <strong>Teacher ID:</strong>
-  <%= @course.teacher_id %>
+  <%= @course.user_id %>
 </p>
 
 
@@ -20,7 +20,7 @@
 	<tr>
       <th>Name</th>
       <th>Email</th>
-      <% if current_user.teacher? %>
+      <% if current_user.role == "Teacher" %>
       <th>Grade</th>
       <%end%>
     </tr>
@@ -28,9 +28,9 @@
 	
     <% @course.subscriptions.each do |subscription| %>
       <tr>
-        <td><%= subscription.student.name %></td>
-        <td><%= subscription.student.email%></td>
-        <% if current_user.teacher? %>
+        <td><%= subscription.user.name %></td>
+        <td><%= subscription.user.email%></td>
+        <% if current_user.role == "Teacher" %>
         <td><%= subscription.grade %></td>
         <% end %>
       </tr>

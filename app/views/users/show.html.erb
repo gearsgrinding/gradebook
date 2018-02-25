@@ -1,12 +1,40 @@
 <%= @user.name %>, <%= @user.email %>
-
-<% if current_user.teacher? %>
+<%puts @user.courses%>
+<% if current_user.role == "Teacher" %>
   <p>teacher profile</p>
+  <table>
+    <tr>
+      <th>Class name</th>
+    </tr>
+
+  <tbody>
+    <% @user.courses.each do |sub| %>
+      <tr>
+        <td>test</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
-<%puts current_user.student?%>
-<% if current_user.student? %>
+<% if current_user.role == "Student" %>
   <p>student profile</p>
+  <table>
+    <tr>
+      <th>Class name</th>
+    </tr>
+
+  <tbody>
+    <% @user.subscriptions.each do |sub| %>
+      <tr>
+        <td><%= sub.course.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+  <p> GPA </p>
+  <%= @user.getGPA %>
 <% end %>
-<% if current_user.admin? %>
+<% if current_user.role == "Admin" %>
   <p>admin profile</p>
 <% end %>

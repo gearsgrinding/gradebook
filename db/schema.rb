@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20180220044830) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "teacher_id"
+    t.integer  "user_id"
     t.float    "average_grade", default: 0.0
   end
 
-  add_index "courses", ["teacher_id"], name: "index_courses_on_teacher_id"
+  add_index "courses", ["user_id"], name: "index_courses_on_user_id"
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer  "student_id"
+    t.integer  "user_id"
     t.integer  "course_id"
     t.float    "grade"
     t.datetime "created_at"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20180220044830) do
   end
 
   add_index "subscriptions", ["course_id"], name: "index_subscriptions_on_course_id"
-  add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
